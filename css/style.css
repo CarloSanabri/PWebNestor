@@ -1,0 +1,157 @@
+/* ==========================================
+   LAS NOTICIAS DE IMPACTO
+   Hoja de estilos principal
+========================================== */
+
+/* ========= GOOGLE FONT ========= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+
+/* ========= VARIABLES ========= */
+
+:root{
+
+    --primary:#C62828;
+    --primary-dark:#A91F1F;
+
+    --black:#1F1F1F;
+
+    --gray:#666666;
+
+    --light:#F5F5F5;
+
+    --white:#FFFFFF;
+
+    --border:#E5E5E5;
+
+    --shadow:0px 10px 30px rgba(0,0,0,.08);
+
+    --radius:12px;
+
+    --transition:.35s ease;
+
+}
+
+
+/* ========= RESET ========= */
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+
+/* ========= HTML ========= */
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+/* ========= BODY ========= */
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:var(--white);
+
+    color:var(--black);
+
+    line-height:1.6;
+
+}
+
+main{
+
+    margin-top: 80px;
+
+}
+
+
+/* ========= IMÁGENES ========= */
+
+img{
+
+    display:block;
+
+    max-width:100%;
+
+}
+
+
+/* ========= LINKS ========= */
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+
+/* ========= LISTAS ========= */
+
+ul{
+
+    list-style:none;
+
+}
+
+
+/* ========= CONTAINER ========= */
+
+.container{
+
+    width:min(1200px,90%);
+
+    margin:auto;
+
+}
+
+
+/* ========= SECTION ========= */
+
+section{
+
+    padding:90px 0;
+
+}
+
+
+/* ========= TITULOS ========= */
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:60px;
+
+}
+
+.section-title h2{
+
+    font-size:2.2rem;
+
+    color:var(--black);
+
+    margin-bottom:15px;
+
+}
+
+.section-title p{
+
+    color:var(--gray);
+
+    max-width:700px;
+
+    margin:auto;
+
+}

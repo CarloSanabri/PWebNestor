@@ -1,0 +1,89 @@
+@media(max-width:992px){
+
+.about{
+
+    grid-template-columns:1fr;
+
+}
+
+.about__image{
+
+    max-width:380px;
+
+    margin:auto;
+
+}
+
+.about-list{
+
+    grid-template-columns:1fr;
+
+}
+
+.about-stats{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.about-stats{
+
+    grid-template-columns:1fr;
+
+}
+
+.about__content h3{
+
+    font-size:34px;
+
+}
+
+.about__content{
+
+    text-align:center;
+
+}
+
+}
+
+/*=========================================
+            TRAYECTORIA
+=========================================*/
+
+@media(max-width:992px){
+
+.timeline-horizontal{
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:50px;
+
+}
+
+.timeline-line{
+
+    display:none;
+
+}
+
+}
+
+@media(max-width:650px){
+
+.timeline-horizontal{
+
+    grid-template-columns:1fr;
+
+}
+
+.timeline-box{
+
+    height:auto;
+
+}
+
+}
