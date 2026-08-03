@@ -7,7 +7,12 @@ async function cargarPublicaciones() {
     try {
 
         const respuesta = await fetch("api/facebook.php");
+
+        console.log(respuesta);
+
         const datos = await respuesta.json();
+
+        console.log(datos);
 
         const contenedor = document.getElementById("posts");
 
@@ -140,8 +145,8 @@ async function cargarPublicaciones() {
     <div class="post-media">
 
        ${esVideo
-    ?
-    `
+                    ?
+                    `
     <div class="post-media">
 
         <img src="${post.full_picture}" alt="">
@@ -156,9 +161,9 @@ async function cargarPublicaciones() {
 
     </div>
     `
-    :
-    media
-}
+                    :
+                    media
+                }
 
     </div>
 
@@ -172,7 +177,8 @@ async function cargarPublicaciones() {
 
         <p>
 
-            ${post.message ?? ""}
+         ${(post.message ?? "").replace(/\n/g, "<br>")}
+
 
         </p>
 

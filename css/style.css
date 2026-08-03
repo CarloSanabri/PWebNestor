@@ -1,157 +1,189 @@
 /* ==========================================
    LAS NOTICIAS DE IMPACTO
-   Hoja de estilos principal
+   Hoja de estilos principal (base + variables)
+   Las fuentes se cargan desde includes/header.php
 ========================================== */
-
-/* ========= GOOGLE FONT ========= */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-
 
 /* ========= VARIABLES ========= */
 
-:root{
+:root {
 
-    --primary:#C62828;
-    --primary-dark:#A91F1F;
+    /* Color de marca */
+    --primary: #C62828;
+    --primary-dark: #8F1D1D;
 
-    --black:#1F1F1F;
+    /* Neutros */
+    --black: #16171A;      /* texto principal / secciones oscuras */
+    --gray: #5B5D63;       /* texto secundario */
+    --gray-light: #8A8C91; /* texto terciario / fechas */
+    --light: #F4F4F5;      /* fondo de sección claro */
+    --white: #FFFFFF;
+    --border: #E4E4E7;     /* líneas finas / divisores */
 
-    --gray:#666666;
+    /* Sombra y forma */
+    --shadow: 0 10px 30px rgba(0, 0, 0, .08);
+    --shadow-hover: 0 20px 45px rgba(0, 0, 0, .14);
+    --radius: 12px;
+    --radius-lg: 22px;
+    --transition: .3s ease;
 
-    --light:#F5F5F5;
+    /* Tipografía */
+    --font-display: 'Oswald', sans-serif;  /* titulares, kickers, cifras */
+    --font-body: 'Poppins', sans-serif;    /* texto de cuerpo, UI */
 
-    --white:#FFFFFF;
-
-    --border:#E5E5E5;
-
-    --shadow:0px 10px 30px rgba(0,0,0,.08);
-
-    --radius:12px;
-
-    --transition:.35s ease;
-
+    /* Layout */
+    --container: min(1200px, 90%);
+    --container-wide: min(1320px, 94%);
 }
 
 
 /* ========= RESET ========= */
 
-*{
-
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 
 /* ========= HTML ========= */
 
-html{
+html {
+    scroll-behavior: smooth;
+}
 
-    scroll-behavior:smooth;
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
 
+    * {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
 }
 
 
 /* ========= BODY ========= */
 
-body{
-
-    font-family:'Poppins',sans-serif;
-
-    background:var(--white);
-
-    color:var(--black);
-
-    line-height:1.6;
-
+body {
+    font-family: var(--font-body);
+    background: var(--white);
+    color: var(--black);
+    line-height: 1.6;
 }
 
-main{
-
+main {
     margin-top: 80px;
+}
 
+
+/* ========= TITULARES ========= */
+
+h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: .3px;
 }
 
 
 /* ========= IMÁGENES ========= */
 
-img{
-
-    display:block;
-
-    max-width:100%;
-
+img {
+    display: block;
+    max-width: 100%;
 }
 
 
 /* ========= LINKS ========= */
 
-a{
-
-    text-decoration:none;
-
-    color:inherit;
-
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 
 /* ========= LISTAS ========= */
 
-ul{
-
-    list-style:none;
-
+ul {
+    list-style: none;
 }
 
 
 /* ========= CONTAINER ========= */
 
-.container{
+.container {
+    width: var(--container);
+    margin: auto;
+}
 
-    width:min(1200px,90%);
-
-    margin:auto;
-
+.container-wide {
+    width: var(--container-wide);
+    margin: auto;
 }
 
 
 /* ========= SECTION ========= */
 
-section{
+section {
+    padding: 90px 0;
+    scroll-margin-top: 90px; /* evita que el header fijo tape el ancla al hacer scroll */
+}
 
-    padding:90px 0;
-
+.hero {
+    scroll-margin-top: 90px;
 }
 
 
-/* ========= TITULOS ========= */
+/* ========= TÍTULOS DE SECCIÓN ========= */
 
-.section-title{
-
-    text-align:center;
-
-    margin-bottom:60px;
-
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
 }
 
-.section-title h2{
-
-    font-size:2.2rem;
-
-    color:var(--black);
-
-    margin-bottom:15px;
-
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-body);
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 14px;
 }
 
-.section-title p{
+.eyebrow::before {
+    content: "";
+    width: 22px;
+    height: 2px;
+    background: var(--primary);
+    display: inline-block;
+}
 
-    color:var(--gray);
+.section-title h2 {
+    font-size: 2.4rem;
+    text-transform: uppercase;
+    color: var(--black);
+    margin-bottom: 15px;
+}
 
-    max-width:700px;
+.section-title p {
+    font-family: var(--font-body);
+    color: var(--gray);
+    max-width: 700px;
+    margin: auto;
+}
 
-    margin:auto;
 
+/* ========= ACCESIBILIDAD: FOCUS VISIBLE ========= */
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 3px;
+    border-radius: 4px;
 }
