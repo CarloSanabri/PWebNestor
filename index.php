@@ -328,10 +328,6 @@ include 'includes/header.php';
 
             </div>
 
-            <!-- Botones -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-
             <!-- Puntos -->
             <div class="swiper-pagination"></div>
 
@@ -396,15 +392,18 @@ include 'includes/header.php';
 
                 <div class="redes">
 
-                    <a href="#"><img src="assets/facebook.png" alt="https://www.facebook.com/ImpactoJudicial"></a>
+                    <a href="https://www.facebook.com/ImpactoJudicial" target="_blank">
+                        <img src="assets/facebook.png" alt="facebook"></a>
 
-                    <a href="#"><img src="assets/social.png" alt="Instagram"></a>
+                    <a href="https://www.instagram.com/impactojudicial/" target="_blank">
+                        <img src="assets/social.png" alt="Instagram"></a>
 
-                    <a href="#"><img src="assets/tik-tok.png" alt="TikTok"></a>
+                    <a href="https://www.tiktok.com/@impactojudicial" target="_blank">
+                        <img src="assets/tik-tok.png" alt="TikTok"></a>
 
                 </div>
 
-                <a href="#" class="btn-contacto">
+                <a href="https://wa.me/573124427048" class="btn-contacto"  target="_blank">
                     Escríbenos
                 </a>
 

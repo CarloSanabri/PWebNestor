@@ -530,12 +530,12 @@ header {
     height: 46px;
     background: var(--black);
     border-radius: 50%;
-    color: var(--white);
-    transition: var(--transition);
 }
+
 
 .swiper-button-next::after,
 .swiper-button-prev::after {
+    color: red;
     font-size: 16px;
     font-weight: 700;
 }
