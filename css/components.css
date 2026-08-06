@@ -68,7 +68,7 @@ header {
     bottom: -8px;
     width: 0;
     height: 2px;
-    background: var(--primary);
+    background: var(--brand-gradient);
     transition: var(--transition);
 }
 
@@ -120,11 +120,26 @@ header {
 }
 
 .banner-card {
+    position: relative;
     background: var(--white);
     padding: 14px;
     border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow);
+}
+
+/* Marco degradado rojo/amarillo alrededor de la portada — guiño a "El Escarabajo" */
+.banner-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 3px;
+    border-radius: var(--radius-lg);
+    background: var(--brand-gradient);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
 }
 
 .banner-card img {
@@ -141,12 +156,12 @@ header {
 ==================================================*/
 
 .hero {
-    padding: 24px 0 100px;
+    padding: 33px 0 50px;
 }
 
 .hero__content {
+    position: relative;
     background: var(--white);
-    border-top: 4px solid var(--primary);
     border-radius: 0 0 var(--radius-lg) var(--radius-lg);
     padding: 55px 60px 60px;
     display: grid;
@@ -154,6 +169,31 @@ header {
     gap: 60px;
     align-items: center;
     box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+/* Barra superior en degradado rojo → amarillo, reemplaza el borde plano */
+.hero__content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--brand-gradient);
+}
+
+/* Destello sutil de fondo, eco del logo, sin restarle seriedad */
+.hero__content::after {
+    content: "";
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(242, 183, 5, .12) 0%, rgba(198, 40, 40, .08) 45%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
 }
 
 /* Cintillo editorial — el elemento distintivo del hero */
@@ -172,10 +212,10 @@ header {
 }
 
 .masthead-bar__dot {
-    width: 4px;
-    height: 4px;
+    width: 5px;
+    height: 5px;
     border-radius: 50%;
-    background: var(--primary);
+    background: var(--secondary);
     flex-shrink: 0;
 }
 
@@ -183,11 +223,12 @@ header {
     display: inline-block;
     padding: 7px 16px;
     border-radius: 40px;
-    background: var(--primary);
+    background: var(--brand-gradient);
     color: var(--white);
     font-family: var(--font-body);
     font-size: .78rem;
     font-weight: 600;
+    box-shadow: 0 6px 16px rgba(198, 40, 40, .25);
 }
 
 .hero__content-text h1 {
@@ -232,13 +273,14 @@ header {
 }
 
 .btn-principal {
-    background: var(--primary);
+    background: var(--brand-gradient);
     color: var(--white);
+    box-shadow: 0 8px 20px rgba(198, 40, 40, .3);
 }
 
 .btn-principal:hover,
 .btn-principal:focus-visible {
-    background: var(--primary-dark);
+    filter: brightness(1.08);
     transform: translateY(-3px);
 }
 
@@ -264,12 +306,21 @@ header {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    box-shadow: 0 0 0 3px var(--white), 0 0 0 5px var(--primary), var(--shadow);
+    box-shadow:
+        0 0 0 3px var(--white),
+        0 0 0 5px var(--secondary),
+        0 0 0 7px var(--primary),
+        var(--shadow);
     transition: var(--transition);
 }
 
 .hero-logo:hover {
     transform: translateY(-6px);
+    box-shadow:
+        0 0 0 3px var(--white),
+        0 0 0 5px var(--secondary),
+        0 0 0 7px var(--primary),
+        var(--shadow-hover);
 }
 
 .hero-logo img {
@@ -297,7 +348,7 @@ header {
     position: relative;
 }
 
-/* Marco desfasado — guiño editorial detrás de la foto */
+/* Marco desfasado — guiño editorial detrás de la foto, en degradado de marca */
 .about__image::before {
     content: "";
     position: absolute;
@@ -305,8 +356,12 @@ header {
     left: -14px;
     width: 100%;
     height: 100%;
-    border: 3px solid var(--primary);
+    border: 3px solid transparent;
     border-radius: var(--radius-lg);
+    background: var(--brand-gradient) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
     z-index: 0;
 }
 
@@ -322,7 +377,7 @@ header {
 
 .about__tag {
     display: inline-block;
-    background: var(--primary);
+    background: var(--brand-gradient);
     color: var(--white);
     padding: 7px 16px;
     border-radius: 40px;
@@ -372,7 +427,7 @@ header {
     left: 16px;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--primary);
+    color: var(--secondary-dark);
     font-weight: 700;
 }
 
@@ -381,7 +436,7 @@ header {
     box-shadow: 0 6px 16px rgba(0, 0, 0, .1);
 }
 
-/* Ficha técnica — franja oscura con divisores, reemplaza las 4 tarjetas blancas sueltas */
+/* Ficha técnica — franja negra con divisores, alterna acento rojo/amarillo */
 .about-stats {
     margin-top: 70px;
     background: var(--black);
@@ -404,6 +459,10 @@ header {
     font-size: 2.6rem;
     color: var(--primary);
     margin-bottom: 8px;
+}
+
+.stat-card:nth-child(even) h3 {
+    color: var(--secondary);
 }
 
 .stat-card span {
@@ -437,7 +496,8 @@ header {
     left: 8%;
     width: 84%;
     height: 3px;
-    background: var(--border);
+    background: var(--brand-gradient);
+    opacity: .35;
     z-index: 1;
 }
 
@@ -454,7 +514,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--primary);
+    background: var(--brand-gradient);
     color: var(--white);
     font-family: var(--font-display);
     font-size: 18px;
@@ -499,7 +559,7 @@ header {
 
 .gallery {
     width: 100%;
-    padding: 90px 0;
+    padding: 30px 0;
     background: var(--light);
 }
 
@@ -535,7 +595,7 @@ header {
 
 .swiper-button-next::after,
 .swiper-button-prev::after {
-    color: red;
+    color: var(--secondary);
     font-size: 16px;
     font-weight: 700;
 }
@@ -561,7 +621,7 @@ PUBLICACIONES
 ==============================*/
 
 #publicaciones {
-    padding: 90px 0;
+    padding: 30px 0;
     background: var(--white);
 }
 
@@ -584,7 +644,7 @@ PUBLICACIONES
 }
 
 .post-card:hover {
-    border-top-color: var(--primary);
+    border-top: 3px solid var(--secondary);
     transform: translateY(-6px);
     box-shadow: var(--shadow-hover);
 }
@@ -725,9 +785,19 @@ CONTACTO
     background: var(--white);
     padding: 40px 35px 35px;
     border-radius: var(--radius);
-    border-top: 4px solid var(--primary);
     box-shadow: var(--shadow);
     text-align: center;
+    overflow: hidden;
+}
+
+.contacto-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--brand-gradient);
 }
 
 .contacto-box p {
@@ -741,16 +811,18 @@ CONTACTO
     display: inline-block;
     margin-top: 22px;
     padding: 13px 30px;
-    background: var(--primary);
+    background: var(--brand-gradient);
     color: var(--white);
     border-radius: 50px;
     font-weight: 600;
     transition: var(--transition);
+    box-shadow: 0 8px 20px rgba(198, 40, 40, .25);
 }
 
 .btn-contacto:hover,
 .btn-contacto:focus-visible {
-    background: var(--primary-dark);
+    filter: brightness(1.08);
+    transform: translateY(-2px);
 }
 
 .redes {
@@ -781,9 +853,21 @@ CONTACTO
 ==================================================*/
 
 .site-footer {
+    position: relative;
     background: var(--black);
     color: var(--white);
     padding-top: 70px;
+}
+
+/* Línea superior en degradado de marca — remata la página con el mismo guiño del hero */
+.site-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--brand-gradient);
 }
 
 .footer__top {
@@ -844,7 +928,7 @@ CONTACTO
 
 .footer__col ul li a:hover,
 .footer__col ul li a:focus-visible {
-    color: var(--primary);
+    color: var(--secondary);
 }
 
 .footer__redes {
@@ -902,5 +986,5 @@ CONTACTO
 
 .footer__top-link:hover,
 .footer__top-link:focus-visible {
-    color: var(--primary);
+    color: var(--secondary);
 }

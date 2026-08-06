@@ -4,21 +4,42 @@
    Las fuentes se cargan desde includes/header.php
 ========================================== */
 
-/* ========= VARIABLES ========= */
+/* ========= VARIABLES =========
+   Paleta de marca: NEGRO · AMARILLO · GRIS · ROJO
+   (blanco se usa únicamente como lienzo/fondo neutro)
+*/
 
 :root {
 
-    /* Color de marca */
+    /* Rojo — color primario de marca */
     --primary: #C62828;
     --primary-dark: #8F1D1D;
+    /* mismo rojo, tono oscuro para hover */
 
-    /* Neutros */
-    --black: #16171A;      /* texto principal / secciones oscuras */
-    --gray: #5B5D63;       /* texto secundario */
-    --gray-light: #8A8C91; /* texto terciario / fechas */
-    --light: #F4F4F5;      /* fondo de sección claro */
+    /* Amarillo — color secundario de marca */
+    --secondary: #F2B705;
+    --secondary-dark: #C79300;
+    /* mismo amarillo, tono oscuro para hover */
+
+    /* Degradado de marca — para bordes, badges y detalles */
+    --brand-gradient: linear-gradient(120deg, var(--secondary) 0%, var(--primary) 55%, var(--primary-dark) 100%);
+
+    /* Negro */
+    --black: #16171A;
+    /* texto principal / secciones oscuras */
+
+    /* Grises */
+    --gray: #5B5D63;
+    /* texto secundario */
+    --gray-light: #8A8C91;
+    /* texto terciario / fechas */
+    --light: #F4F4F5;
+    /* fondo de sección gris muy claro */
+    --border: #E4E4E7;
+    /* líneas finas / divisores, gris claro */
+
+    /* Blanco — lienzo neutro (no cuenta como color de marca) */
     --white: #FFFFFF;
-    --border: #E4E4E7;     /* líneas finas / divisores */
 
     /* Sombra y forma */
     --shadow: 0 10px 30px rgba(0, 0, 0, .08);
@@ -28,8 +49,10 @@
     --transition: .3s ease;
 
     /* Tipografía */
-    --font-display: 'Oswald', sans-serif;  /* titulares, kickers, cifras */
-    --font-body: 'Poppins', sans-serif;    /* texto de cuerpo, UI */
+    --font-display: 'Oswald', sans-serif;
+    /* titulares, kickers, cifras */
+    --font-body: 'Poppins', sans-serif;
+    /* texto de cuerpo, UI */
 
     /* Layout */
     --container: min(1200px, 90%);
@@ -81,7 +104,10 @@ main {
 
 /* ========= TITULARES ========= */
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
     font-family: var(--font-display);
     font-weight: 600;
     letter-spacing: .3px;
@@ -128,7 +154,8 @@ ul {
 
 section {
     padding: 90px 0;
-    scroll-margin-top: 90px; /* evita que el header fijo tape el ancla al hacer scroll */
+    scroll-margin-top: 90px;
+    /* evita que el header fijo tape el ancla al hacer scroll */
 }
 
 .hero {
@@ -160,7 +187,7 @@ section {
     content: "";
     width: 22px;
     height: 2px;
-    background: var(--primary);
+    background: var(--brand-gradient);
     display: inline-block;
 }
 
